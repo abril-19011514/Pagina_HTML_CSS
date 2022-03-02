@@ -1,0 +1,287 @@
+/* Paleta de colores */
+/* Sirve para definir los colores 
+   a utilizar en toda la página */
+:root{ 
+    --blanco:#ffffff;
+    --negro: #212121;
+    --primario: #fd0;
+    --secundario:#714185;
+    --gris:#757572;
+    --azul: blue;
+    --grisclaro:#def;
+    --amaclaro:#e1f5fe;
+    --amaclar:#b3e5fc;
+    --verdeclaro:palegreen;
+    --verdecla:#33ffcc;
+    --clarogris:#cdcdcd;
+    --normalazul:#2196f3;
+}
+
+/* Estandarizar el documento en rem */
+/*GLOBALES*/
+/*Box model para estandarizar el tamaño de la página*/
+html{ 
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Estilos del apartado body */
+body{
+    font-size: 16px; /*1 rem igual a 16 px*/
+    font-family: 'Dosis', sans-serif; /* Insertar fuente externa  */
+    background: linear-gradient(to right,var(--amaclar) 0%,var(--amaclaro)100%);
+}
+
+.boton{
+    background-color: var(--primario);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform:uppercase ;
+    font-weight: bolder;
+    border-radius: 0.5rem;
+    text-align: center;
+    width: 90%;
+}
+
+@media (min-width:768px) {
+    .boton{
+        width: auto;
+    } 
+}
+
+/* Estilos de una subclase */
+.contenedor{
+    width: 120rem;
+    margin: 0 auto;
+}
+
+.sombra{
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(158,208,242,1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(158,208,242,1);
+    box-shadow: 10px 10px 5px 0px rgba(158,208,242,1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/*TIPOGRAFIA*/
+h1{
+    font-size:  3.8rem;
+}
+
+h2{
+    font-size: 2.8rem;
+    font-weight: 800; /* Elegir tamaño de fuente insertada*/
+}
+
+h3{
+ font-size: 1.8rem;
+}
+
+h1, h2, h3{
+    text-align: center;
+}
+
+/*TITULO*/
+/* Utilización de span (texto especifico) */
+.titulo span{
+    text-align: center;
+    font-size: 2rem;
+    color: red;
+}
+/*Utilidades*/
+.w-100{
+    width: 100%;
+}
+@media (min-width:768px) {
+    .w-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+/*NAVEGACIÓN PRINCIPAL*/
+/* Navegación estilos*/
+.nav-back{
+    background-color: var(--azul); /* Poner fondo de navegación */
+}
+
+
+.navegacion-principal{
+    /*background-color: var(--primario);*/
+    display:flex; /*Para establecer la forma dentro de la navegación*/
+    /*flex-direction:colum;*/ /* Para poneren columna */
+    /*align-items: flex-start;*/ /* Para alinear la columna */
+    justify-content:space-around; /*Alineación del contenido entro del navegación*/
+}
+
+/* Estilos unicamente de las etiquera <a href> */
+.navegacion-principal a{
+    color: var(--blanco);
+    text-decoration:none; /* Permite tachar el texto */
+    font-size: 2rem;
+    font-weight:700;
+    padding: 1 rem; /* Establece espacio de relleno */
+}
+
+.navegacion-principal a:hover{
+    background-color:var(--primario);
+    color: var(--negro);
+}
+
+/*Se utiliza para establecer parametros dentro de la página */
+/*Utilizando el @media y (min-width)*/
+/*@media(min-width:480px){
+    body{ /*los cambios van hacia en body
+        background-color:#4EB3F1;
+    }
+}*/
+
+@media(min-width:768px){
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.boton :hover{
+    cursor: pointer;
+}
+
+/*HERO IMAGEN*/
+/*Referencia a section para agregar la imagen con background*/
+.hero{
+    background-image: url(../imgs/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+}
+
+/*Transparencia y posición del div*/
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Se establece color al texto*/
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
+
+.ubicación{ 
+    display: flex;
+    align-items:flex-start;
+}
+/*Uso de scroll en ciertos parametros*/
+.servicios, .navegacion-principal{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+@media (min-width: 768px) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        /* 
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-columns: 33.33% 33.33% 33.33%
+        */
+        column-gap: 5rem;
+    } 
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3{
+    color: var(--azul);
+    font-weight: normal;
+}
+
+.servicio p{
+    text-align: justify;
+    line-height: 2;
+}
+
+.servicio .iconos{
+    height: 12rem;
+    width: 12rem;
+    background-color: var(--negro);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.formulario{
+    background-color: var(--gris);
+    width: min (60rem, 100%);
+    margin:0 auto ;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset{
+    border: none;
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase; /*MAYUSCULAS*/
+    font-weight: 700; /*Negritas*/
+    margin-bottom: 2rem; /*Separa los input*/
+    color: var(--primario);
+}
+/*CAMPOS*/
+@media (min-width: 768px) { /*Aplica a un tamaño especifico*/
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 50% 50%; /*Divide en dos columnas*/
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem; /*Separa las columnas*/
+    }    
+}
+.campo:nth-child(3), /*Selección del campo 3*/
+.campo:nth-child(4){ /*Selección del campo 4*/
+    grid-column: 1/3;
+}
+
+.campo{
+    margin-bottom: 1rem; /*Seoaración de abajo del formulario*/
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 5rem;
+    display: block;
+}
+.input-text{
+    width: 100%; /*Abarque todo el espacio*/
+    border: none;
+    padding: 1.5rem;
+    border-radius: 5rem;
+}
+.enviar .boton{
+    width: 100%;
+}
+
+.footer{
+    text-align: center;
+}
